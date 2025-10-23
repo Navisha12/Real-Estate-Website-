@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 
 interface HeaderProps {
-  onNavigate: (page: 'home' | 'about' | 'contact') => void;
+  onNavigate: (page: 'home' | 'about' | 'contact' | 'signin') => void;
 }
 
 const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const handleNavClick = (page: 'home' | 'about' | 'contact') => {
+  const handleNavClick = (page: 'home' | 'about' | 'contact' | 'signin') => {
     onNavigate(page);
     setIsMenuOpen(false);
   };
@@ -28,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <button onClick={() => handleNavClick('home')} className="text-gray-600 hover:text-blue-600 transition duration-300">For Sale</button>
           <button onClick={() => handleNavClick('about')} className="text-gray-600 hover:text-blue-600 transition duration-300">About Us</button>
           <button onClick={() => handleNavClick('contact')} className="text-gray-600 hover:text-blue-600 transition duration-300">Contact</button>
-          <button className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+          <button onClick={() => handleNavClick('signin')} className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
             Sign In
           </button>
         </nav>
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <button onClick={() => handleNavClick('home')} className="block w-full text-left py-2 text-gray-600 hover:text-blue-600">For Sale</button>
           <button onClick={() => handleNavClick('about')} className="block w-full text-left py-2 text-gray-600 hover:text-blue-600">About Us</button>
           <button onClick={() => handleNavClick('contact')} className="block w-full text-left py-2 text-gray-600 hover:text-blue-600">Contact</button>
-          <button className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
+          <button onClick={() => handleNavClick('signin')} className="w-full mt-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300">
             Sign In
           </button>
         </div>

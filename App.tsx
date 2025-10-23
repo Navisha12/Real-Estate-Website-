@@ -5,11 +5,12 @@ import PropertyList from './components/PropertyList';
 import Footer from './components/Footer';
 import About from './components/About';
 import Contact from './components/Contact';
+import SignIn from './components/SignIn';
 import PropertyDetailModal from './components/PropertyDetailModal';
 import { PROPERTIES } from './constants';
 import type { Property, SearchCriteria } from './types';
 
-type Page = 'home' | 'about' | 'contact';
+type Page = 'home' | 'about' | 'contact' | 'signin';
 
 const App: React.FC = () => {
   const [selectedProperty, setSelectedProperty] = useState<Property | null>(null);
@@ -61,6 +62,7 @@ const App: React.FC = () => {
         )}
         {currentPage === 'about' && <About />}
         {currentPage === 'contact' && <Contact />}
+        {currentPage === 'signin' && <SignIn onNavigate={navigateTo} />}
       </main>
       <Footer onNavigate={navigateTo} />
       {selectedProperty && (
